@@ -59,13 +59,19 @@ autolijst = []
 for i in range(int(keys["ye"])):
   autolijst.append(Vehicle(i))
 
-for t in range(key_list[5]):
+for t in range(int(key_list[5])):
+    rm = 0
+    for kt in range(len(datal)):
+        if datal[kt] < t:
+            rm = kt
+    datal = datal[rm:]
     for auto in autolijst:
         if auto.timeTillNextAction == t:
             if auto.action == 'choose':
 
-                auto.chooseRide(data[datal[0]][0])
-                datal = datal[1:]
+                if 
+                    auto.chooseRide(data[datal[0]][0])
+                    datal = datal[1:]
 
             if auto.action == 'wait':
                 auto.waitRide(auto.listRides[-1])
