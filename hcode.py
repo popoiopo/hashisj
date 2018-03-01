@@ -43,7 +43,7 @@ with open("easy.csv") as csvfile:
       key_list = line.keys()
       keys = {"xb": key_list[0], "yb": key_list[1], "xe": key_list[2], "ye": key_list[3], "start": key_list[4], "end": key_list[5]}
       line["id"] = counter
-
+      counter += 1
       try:
         data[line[keys["start"]]].append(line)
       except KeyError:
@@ -58,7 +58,7 @@ datal = sorted(datal)
 autolijst = []
 for i in range(int(keys["ye"])):
   autolijst.append(Vehicle(i))
-
+print(datal)
 for t in range(int(key_list[5])):
     rm = 0
     for kt in range(len(datal)):
@@ -68,11 +68,21 @@ for t in range(int(key_list[5])):
     for auto in autolijst:
         if auto.timeTillNextAction == t:
             if auto.nextAction == 'choose':
-
-                auto.chooseRide(data[str(datal[0])][0])
-                datal = datal[1:]
+				
+				print(data[str(datal[0])][0])
+				auto.chooseRide(data[str(datal[0])][0])
+				datal = datal[1:]
+				#print(datal[1])
 
             if auto.nextAction == 'wait':
                 auto.waitRide(auto.listRides[-1])
+				
+
+for auto in autolijst:
+	print("auto ", auto.id)
+	for rit in auto.listRides:
+		print("rit", rit)
+		
+	print("==================")
 
 
