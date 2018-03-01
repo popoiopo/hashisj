@@ -14,17 +14,17 @@ class Vehicle:
 
   # Volgende actie: hij is op beginpunt
   def chooseRide(self, ride):
-    self.timeTillNextAction = abs(self.x - ride.xb) + abs(self.y - ride.yb) + self.timeTillNextAction
-    self.x = ride.xb
-    self.y = ride.yb
+    self.timeTillNextAction = abs(self[keys["xe"]] - ride[keys["xb"]]) + abs(self[keys["y"]] - ride[keys["yb"]]) + self.timeTillNextAction
+    self.x = ride[keys["xb"]]
+    self.y = ride[keys["yb"]]
     self.nextAction = 'wait'
-    self.listRides.append(ride.id)
+    self.listRides.append(ride[keys["id"]])
 
   #Volgende actie: hij is op eindpunt
   def waitRide(self, ride):
-    self.timeTillNextAction = abs(ride.xe - ride.xb) + abs(ride.ye - ride.yb) + max(self.timeTillNextAction, ride.start)
-    self.x = ride.xe
-    self.y = ride.ye
+    self.timeTillNextAction = abs(ride[keys["xe"]] - ride[keys["xb"]]) + abs(ride[keys["ye"]] - ride[keys["yb"]]) + max(self.timeTillNextAction, ride[keys["start"]])
+    self.x = ride[keys["xe"]]
+    self.y = ride[keys["ye"]]
     self.nextAction = 'choose'
 
 
