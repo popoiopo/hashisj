@@ -52,7 +52,7 @@ with open("easy.csv") as csvfile:
 
       datal.append(int(line[keys["start"]]))
 
-# print(sorted(datal))
+datal = sorted(datal)
 # print(data["3"][0][keys["xb"]])
 
 autolijst = []
@@ -67,13 +67,12 @@ for t in range(int(key_list[5])):
     datal = datal[rm:]
     for auto in autolijst:
         if auto.timeTillNextAction == t:
-            if auto.action == 'choose':
+            if auto.nextAction == 'choose':
 
-                if 
-                    auto.chooseRide(data[datal[0]][0])
-                    datal = datal[1:]
+                auto.chooseRide(data[str(datal[0])][0])
+                datal = datal[1:]
 
-            if auto.action == 'wait':
+            if auto.nextAction == 'wait':
                 auto.waitRide(auto.listRides[-1])
 
 
