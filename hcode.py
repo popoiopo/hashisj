@@ -14,17 +14,17 @@ class Vehicle:
 
   # Volgende actie: hij is op beginpunt
   def chooseRide(self, ride):
-    self.timeTillNextAction = abs(self.x - int(ride[keys["xb"]])) + abs(self.y - int(ride[keys["yb"]])) + self.timeTillNextAction
-    self.x = ride[keys["xb"]]
-    self.y = ride[keys["yb"]]
+    self.timeTillNextAction = abs(self.x - int(ride[str(keys["xb"])])) + abs(self.y - int(ride[str(keys["yb"])])) + self.timeTillNextAction
+    self.x = ride[str(keys["xb"])]
+    self.y = ride[str(keys["yb"])]
     self.nextAction = 'wait'
-    self.listRides.append(ride["id"])
+    self.listRides.append(ride)
 
   #Volgende actie: hij is op eindpunt
   def waitRide(self, ride):
-    self.timeTillNextAction = abs(int(ride[keys["xe"]]) - int(ride[keys["xb"]])) + abs(int(ride[keys["ye"]]) - int(ride[keys["yb"]])) + max(self.timeTillNextAction, int(ride[keys["start"]]))
-    self.x = ride[keys["xe"]]
-    self.y = ride[keys["ye"]]
+    self.timeTillNextAction = abs(int(ride[str(keys["xe"])]) - int(ride[str(keys["xb"])])) + abs(int(ride[str(keys["ye"])]) - int(ride[str(keys["yb"])])) + max(self.timeTillNextAction, int(ride[str(keys["start"])]))
+    self.x = ride[str(keys["xe"])]
+    self.y = ride[str(keys["ye"])]
     self.nextAction = 'choose'
 
 
