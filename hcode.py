@@ -60,5 +60,15 @@ for i in range(int(keys["ye"])):
   autolijst.append(Vehicle(i))
 
 for t in range(key_list[5]):
-  for auto in autolijst:
+	for auto in autolijst:
+		if auto.timeTillNextAction == t:
+			if auto.action == 'choose':
+				
+				#HIER DOET BAS EEN KUNSTJE
+				#ER KOMT EEN RIDE UIT
+				auto.chooseRide(ride)
+			
+			if auto.action == 'wait':
+				auto.waitRide(auto.listRides[-1])
+	
     
