@@ -56,11 +56,9 @@ with open("easy.csv") as csvfile:
 # print(data["3"][0][keys["xb"]])
 
 autolijst = []
-for i in key_list[2]:
+for i in range(int(keys["ye"])):
   autolijst.append(Vehicle(i))
-  print(i)
 
-print(autolijst)
-
-# for t in [0:key_list[5]]:
-
+for t in range(key_list[5]):
+  for auto in autolijst:
+    
