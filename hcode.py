@@ -67,19 +67,20 @@ for t in range(int(key_list[5])):
     datal = datal[rm:]
     for auto in autolijst:
         if auto.timeTillNextAction == t:
-            if auto.nextAction == 'choose':
+			print(t)
+			if auto.nextAction == 'choose':
 				
-				print(data[str(datal[0])][0])
+				#print(data[str(datal[0])][0])
 				auto.chooseRide(data[str(datal[0])][0])
 				datal = datal[1:]
 				#print(datal[1])
 
-            if auto.nextAction == 'wait':
-                auto.waitRide(auto.listRides[-1])
+			elif auto.nextAction == 'wait':
+				auto.waitRide(auto.listRides[-1])
 				
 
 for auto in autolijst:
-	print("auto ", auto.id)
+	print("auto ", auto.id, auto.nextAction)
 	for rit in auto.listRides:
 		print("rit", rit)
 		
